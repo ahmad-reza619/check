@@ -1,4 +1,5 @@
 const { string } = require('./index');
+
 describe('string', () => {
   it('should return true if param is string', () => {
     expect(string('wow')).toBe(true);
@@ -9,9 +10,8 @@ describe('string', () => {
     expect(string(() => {})).toBe(false);
     expect(string({})).toBe(false);
     expect(string([1, 2])).toBe(false);
-    expect(string(null)).toBe(false);
   })
   it('should return false if param is not provided', () => {
-    expect(string()).toThrow();
+    expect(() => string()).toThrow();
   })
 })
