@@ -1,4 +1,4 @@
-const { string, bool, func, num, obj } = require('./index');
+const { string, bool, func, num, obj, arr, date } = require('./index');
 
 describe('string', () => {
   it('should return true if param is string', () => {
@@ -68,7 +68,34 @@ describe('obj', () => {
     expect(obj(s)(() => {})).toBe(false);
     expect(obj(s)('aaa')).toBe(false);
     expect(obj(s)(false)).toBe(false);
-    expect(obj(s)({})).toBe(false);
+    expect(obj(s)(3)).toBe(false);
     expect(obj(s)([1, 2])).toBe(false);
+  })
+})
+
+describe('arr', () => {
+  it('should return true if param is arr', () => {
+    expect(arr([])).toBe(true);
+  })
+  it('should return false if param is not arr', () => {
+    expect(arr(() => {})).toBe(false);
+    expect(arr('aaa')).toBe(false);
+    expect(arr(false)).toBe(false);
+    expect(arr(3)).toBe(false);
+    expect(arr({})).toBe(false);
+  })
+})
+
+describe('date', () => {
+  it('should return true if param is arr', () => {
+    expect(date(new Date())).toBe(true);
+  })
+  it('should return false if param is not arr', () => {
+    expect(date(() => {})).toBe(false);
+    expect(date('aaa')).toBe(false);
+    expect(date(false)).toBe(false);
+    expect(date(3)).toBe(false);
+    expect(date({})).toBe(false);
+    expect(date([])).toBe(false);
   })
 })
