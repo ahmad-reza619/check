@@ -59,3 +59,25 @@ console.log(match({
   hello: 'world',
 })) // true
 ```
+
+6. apakah.arr
+
+Check if type is array
+
+```js
+
+const match = arr([1, 2]);
+
+console.log(match) // true
+```
+
+6. apakah.date
+
+Check if type is array
+
+```js
+
+const match = date(new Date());
+
+console.log(match) // true
+```
