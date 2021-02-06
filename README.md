@@ -81,3 +81,21 @@ const match = date(new Date());
 
 console.log(match) // true
 ```
+
+7. apakah.and
+This function can be combined with any other validator. This is most useful for testing multiple condition that has to be true
+```js
+const arrayWithLengthOf5 = apakah.and(apakah.arr, (item) => item.length === 5);
+arrayWithLengthOf5([1, 2]) // false
+arrayWithLengthOf5('string') // false
+arrayWithLengthOf5([12, 3, 54, 6, 21]) // true
+```
+
+8. apakah.or
+This function can be combined with other validator. This variant of function will return true if any of the validator is truthy
+```js
+const stringOrNum = apakah.or(apakah.string, apakah.num)
+stringOrNum(5) // true
+stringOrNum('hello') // true
+stringOrNum({}) // false
+```
